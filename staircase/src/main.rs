@@ -1,3 +1,4 @@
+mod staircase;
 
 /// QUESTION:
 ///    Write a program that prints a staircase of size n.
@@ -10,22 +11,7 @@
 ///         ####
 ///      Its base and height are both equal to n. It is drawn using # symbols and spaces. The last line is not preceded by any spaces.
 
-// stair case drawing function
-fn draw_staircase(size: usize, step_structure: &char) {
-	let mut current_step = size;
-
-	while current_step > 0 {
-		let step_size_diff = size - (current_step - 1);
-		let stair_space = " ".repeat(size - step_size_diff);
-		let stair_structure = format!("{}", step_structure).repeat(step_size_diff);
-
-		println!("{}{}", stair_space, stair_structure);
-
-		current_step -= 1;
-	}
-}
-
 fn main() {
 	// stair
-	draw_staircase(10, &'#');
+	staircase::draw_staircase(10, &'#');
 }
